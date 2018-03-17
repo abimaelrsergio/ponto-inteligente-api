@@ -2,6 +2,7 @@ package com.abgi.pontointeligente.api.repositories;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,9 @@ import com.abgi.pontointeligente.api.utils.PasswordUtils;
 @SpringBootTest
 @ActiveProfiles("test")
 public class LancamentoRepositoryTest {
+	
+	private static final String EMAIL = "abimaelr.sergio@gmail.com";
+	private static final String CPF = "16591578308";
 	
 	@Autowired
 	private LancamentoRepository lancamentoRepository;
@@ -72,21 +76,26 @@ public class LancamentoRepositoryTest {
 	}
 	
 	private Lancamento obterDadosLancamentos(Funcionario funcionario) {
-		Lancamento lancameto = new Lancamento();
-		lancameto.setData(new Date());
-		lancameto.setTipo(TipoEnum.INICIO_ALMOCO);
-		lancameto.setFuncionario(funcionario);
-		return lancameto;
+		Lancamento lancamento = new Lancamento();
+		lancamento.setData(new Date());
+		lancamento.setTipo(TipoEnum.INICIO_ALMOCO);
+		lancamento.setFuncionario(funcionario);
+		lancamento.setDescricao("Inicio Almoço");
+		lancamento.setLocalizacao("São Paulo");
+		return lancamento;
 	}
 
-	private Funcionario obterDadosFuncionario(Empresa empresa) throws NoSuchAlgorithmException {
+	private Funcionario obterDadosFuncionario(Empresa empresa) {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setNome("Fulano de Tal");
+		funcionario.setNome("Abimael");
 		funcionario.setPerfil(PerfilEnum.ROLE_USUARIO);
-		funcionario.setSenha(PasswordUtils.gerarBCrypt("123456"));
-		funcionario.setCpf("24291173474");
-		funcionario.setEmail("email@email.com");
+		funcionario.setSenha(PasswordUtils.gerarBCrypt("123mudar"));
+		funcionario.setCpf(CPF);
+		funcionario.setEmail(EMAIL);
 		funcionario.setEmpresa(empresa);
+		funcionario.setQtdHorasAlmoco(1f);
+		funcionario.setQtdHorasTrabalhoDia(8f);
+		funcionario.setValorHora(BigDecimal.valueOf(45d));
 		return funcionario;
 	}
 

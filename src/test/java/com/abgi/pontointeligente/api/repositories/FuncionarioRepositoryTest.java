@@ -3,6 +3,8 @@ package com.abgi.pontointeligente.api.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.math.BigDecimal;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -86,6 +88,9 @@ public class FuncionarioRepositoryTest {
 		funcionario.setCpf(CPF);
 		funcionario.setEmail(EMAIL);
 		funcionario.setEmpresa(empresa);
+		funcionario.setQtdHorasAlmoco(1f);
+		funcionario.setQtdHorasTrabalhoDia(8f);
+		funcionario.setValorHora(BigDecimal.valueOf(45d));
 		return funcionario;
 	}
 
