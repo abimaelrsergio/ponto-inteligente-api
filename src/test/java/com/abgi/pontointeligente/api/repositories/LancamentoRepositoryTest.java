@@ -3,7 +3,6 @@ package com.abgi.pontointeligente.api.repositories;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
