@@ -89,7 +89,13 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jdk8</artifactId>
-		</dependency>		
+		</dependency>	
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId> <!-- Essa depencencia é para trabalhar com Enums -->
+			<version>3.6</version>
+		</dependency>
 
 		<!-- Hibernate validator -->
 		<dependency>
